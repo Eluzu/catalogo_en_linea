@@ -1,0 +1,24 @@
+{
+  "name": "catalogo_en_linea",
+  "version": "1.0.0",
+  "description": "DESPLIEGUE AUTOMATIZADO CATALOGO EN LINEA (Despliegue Automatizado y Continuo (CD)): El objetivo principal practicar el flujo de despliegue continuo: cualquier actualización que realices en el proyecto debe reflejarse en producción de forma automática al enviar tus cambios al repositorio remoto.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Eluzu/catalogo_en_linea.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/Eluzu/catalogo_en_linea/issues"
+  },
+  "homepage": "https://github.com/Eluzu/catalogo_en_linea#readme",
+  "dependencies": {
+    "express": "^5.2.1"
+  }
+}
