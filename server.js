@@ -5,8 +5,8 @@ const PORT = process.env.PORT || 3000;
 // Endpoint principal
 app.get('/', (req, res) => {
     res.json({
-        message: "¡Hola! Mi aplicación ha sido desplegada automáticamente en Render 🚀",
-        version: "1.0.0",
+        message: "¡Versión actualizada mediante Despliegue Continuo! 🎉",
+        version: "1.1.0",
         status: "OK"
     });
 });
