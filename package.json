@@ -4,7 +4,9 @@
   "description": "DESPLIEGUE AUTOMATIZADO CATALOGO EN LINEA (Despliegue Automatizado y Continuo (CD)): El objetivo principal practicar el flujo de despliegue continuo: cualquier actualización que realices en el proyecto debe reflejarse en producción de forma automática al enviar tus cambios al repositorio remoto.",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node server.js",
+    "dev": "node --watch server.js",
+    "test": "node test_catalog.js"
   },
   "repository": {
     "type": "git",
