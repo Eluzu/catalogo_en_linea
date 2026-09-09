@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AURA Cosmétique | Catálogo Exclusivo de Belleza y Cuidado Facial</title>
+    <meta name="description"
+        content="Descubre el catálogo interactivo de AURA Cosmétique. Filtra por marca, categoría y precio entre las mejores marcas del mundo como Rare Beauty, Charlotte Tilbury, Fenty Beauty y The Ordinary.">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..800;1,400..800&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <!-- Top Announcement Bar -->
+    <div class="top-announcement">
+        <span>✨ Envíos gratis en compras superiores a $50 | Cosméticos 100% Originales y Certificados</span>
+    </div>
+
+    <!-- Header / Navbar -->
+    <header class="header">
+        <div class="container nav-container">
+            <a href="#" class="brand-logo" id="brand-logo-btn">
+                <span class="logo-sparkle">✦</span>
+                <div class="logo-text-group">
+                    <span class="logo-title">AURA</span>
+                    <span class="logo-subtitle">COSMÉTIQUE</span>
+                </div>
+            </a>
+
+            <!-- Search Bar in Header -->
+            <div class="search-box-wrapper">
+                <i data-lucide="search" class="search-icon"></i>
+                <input type="text" id="search-input" placeholder="Buscar cosméticos, marcas, sueros, labiales..."
+                    aria-label="Buscar cosméticos" autocomplete="off">
+                <button id="clear-search-btn" class="clear-search-btn" aria-label="Limpiar búsqueda"
+                    style="display: none;">
+                    <i data-lucide="x"></i>
+                </button>
+            </div>
+
+            <!-- Header Actions -->
+            <div class="header-actions">
+                <button class="action-btn" id="cart-toggle-btn" aria-label="Ver bolsa de compras">
+                    <i data-lucide="shopping-bag"></i>
+                    <span class="action-label">Bolsa</span>
+                    <span class="cart-badge" id="cart-badge-count">0</span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero-section">
+        <div class="hero-glow-1"></div>
+        <div class="hero-glow-2"></div>
+        <div class="container hero-container">
+            <div class="hero-badge">Colección de Temporada 2026</div>
+            <h1 class="hero-title">Realza tu Esencia con <em>Cosméticos de Alta Gama</em></h1>
+            <p class="hero-description">
+                Explora fórmulas de culto, texturas sedosas y el cuidado botánico más refinado.
+                Filtra en tiempo real por marca, categoría y precio para encontrar tu match perfecto.
+            </p>
+            <div class="hero-highlights">
+                <div class="highlight-item">
+                    <i data-lucide="sparkles"></i>
+                    <span>Fórmulas de Lujo</span>
+                </div>
+                <div class="highlight-item">
+                    <i data-lucide="leaf"></i>
+                    <span>Cruelty-Free & Vegano</span>
+                </div>
+                <div class="highlight-item">
+                    <i data-lucide="shield-check"></i>
+                    <span>Dermatológicamente Probado</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Main Catalog Content -->
+    <main class="main-content container">
+
+        <!-- Interactive Controls Bar -->
+        <section class="controls-panel" aria-label="Filtros del catálogo">
+            <!-- Categorías rápidas (Pills de Navegación) -->
+            <div class="category-pills-container">
+                <span class="pills-label">Categorías:</span>
+                <div class="category-pills" id="category-pills-list">
+                    <button class="pill-btn active" data-category="todas">
+                        <span>Todas</span>
+                        <span class="pill-count" id="pill-count-todas">0</span>
+                    </button>
+                    <!-- Dinámicamente llenado por JS -->
+                </div>
+            </div>
+
+            <!-- Filtros detallados (Marca, Rango Precio, Ordenamiento) -->
+            <div class="filter-controls-grid">
+
+                <!-- 1. Filtro por Marca -->
+                <div class="filter-group">
+                    <label for="brand-select" class="filter-label">
+                        <i data-lucide="sparkle"></i> Filtrar por Marca:
+                    </label>
+                    <div class="select-wrapper">
+                        <select id="brand-select" class="custom-select" aria-label="Filtrar por marca">
+                            <option value="todas">Todas las marcas (Todas)</option>
+                            <!-- Marcas agregadas dinámicamente -->
+                        </select>
+                        <i data-lucide="chevron-down" class="select-arrow"></i>
+                    </div>
+                </div>
+
+                <!-- 2. Filtro por Precio Máximo (Rango Interactivo) -->
+                <div class="filter-group price-filter-group">
+                    <div class="price-header">
+                        <label for="price-range" class="filter-label">
+                            <i data-lucide="dollar-sign"></i> Precio Máximo:
+                        </label>
+                        <span class="price-indicator" id="price-display">$70.00 USD</span>
+                    </div>
+                    <div class="slider-wrapper">
+                        <span class="slider-limit" id="min-price-label">$0</span>
+                        <input type="range" id="price-range" min="5" max="70" step="1" value="70" class="custom-range"
+                            aria-label="Filtro de precio máximo">
+                        <span class="slider-limit" id="max-price-label">$70</span>
+                    </div>
+                </div>
+
+                <!-- 3. Ordenamiento -->
+                <div class="filter-group">
+                    <label for="sort-select" class="filter-label">
+                        <i data-lucide="arrow-up-down"></i> Ordenar por:
+                    </label>
+                    <div class="select-wrapper">
+                        <select id="sort-select" class="custom-select" aria-label="Ordenar productos">
+                            <option value="relevancia">Relevancia / Destacados</option>
+                            <option value="precio-asc">Precio: Menor a Mayor</option>
+                            <option value="precio-desc">Precio: Mayor a Menor</option>
+                            <option value="rating">Mejor Calificados</option>
+                            <option value="nombre-asc">Nombre (A - Z)</option>
+                        </select>
+                        <i data-lucide="chevron-down" class="select-arrow"></i>
+                    </div>
+                </div>
+
+                <!-- Botón Limpiar Filtros -->
+                <div class="filter-group reset-group">
+                    <button id="reset-filters-btn" class="reset-btn" title="Limpiar todos los filtros">
+                        <i data-lucide="rotate-ccw"></i>
+                        <span>Limpiar Filtros</span>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Resumen de Filtros Activos y Conteo -->
+            <div class="active-filters-bar" id="active-filters-bar">
+                <div class="results-count-container">
+                    <span id="results-count-text">Mostrando <strong>16</strong> cosméticos</span>
+                </div>
+                <div class="active-tags-list" id="active-tags-list">
+                    <!-- Chips de filtros activos colocados aquí -->
+                </div>
+            </div>
+        </section>
+
+        <!-- Product Grid Section -->
+        <section class="catalog-grid-section" id="catalog-section">
+            <!-- Loading Indicator -->
+            <div class="loading-state" id="loading-state" style="display: none;">
+                <div class="luxury-spinner"></div>
+                <p>Cargando cosméticos exclusivos...</p>
+            </div>
+
+            <!-- Products Grid Container -->
+            <div class="products-grid" id="products-grid" aria-live="polite">
+                <!-- Se inyectan las tarjetas de productos por JavaScript -->
+            </div>
+
+            <!-- Empty State -->
+            <div class="empty-state" id="empty-state" style="display: none;">
+                <div class="empty-icon-wrap">
+                    <i data-lucide="package-search"></i>
+                </div>
+                <h3 class="empty-title">No encontramos cosméticos con esos criterios</h3>
+                <p class="empty-desc">Intenta ajustar tu rango de precio, cambiar la marca o eliminar los términos de
+                    búsqueda.</p>
+                <button class="primary-btn" id="empty-reset-btn">
+                    <i data-lucide="rotate-ccw"></i>
+                    <span>Ver Todo el Catálogo</span>
+                </button>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Quick View Modal -->
+    <div class="modal-overlay" id="quick-view-modal" aria-hidden="true" role="dialog" aria-modal="true">
+        <div class="modal-container">
+            <button class="modal-close-btn" id="modal-close-btn" aria-label="Cerrar modal">
+                <i data-lucide="x"></i>
+            </button>
+            <div class="modal-content" id="modal-content-body">
+                <!-- Se llena dinámicamente con JS -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Slide-over Cart Drawer -->
+    <div class="cart-drawer-backdrop" id="cart-backdrop"></div>
+    <aside class="cart-drawer" id="cart-drawer" aria-label="Bolsa de compras">
+        <div class="cart-header">
+            <div class="cart-title-wrap">
+                <i data-lucide="shopping-bag"></i>
+                <h3>Tu Bolsa de Belleza</h3>
+            </div>
+            <button class="cart-close-btn" id="cart-close-btn" aria-label="Cerrar bolsa">
+                <i data-lucide="x"></i>
+            </button>
+        </div>
+
+        <div class="cart-items-container" id="cart-items-list">
+            <!-- Items de la bolsa inyectados por JS -->
+        </div>
+
+        <div class="cart-footer" id="cart-footer">
+            <div class="cart-subtotal-row">
+                <span>Subtotal:</span>
+                <span class="cart-subtotal-price" id="cart-subtotal">$0.00</span>
+            </div>
+            <div class="cart-shipping-notice">
+                <i data-lucide="truck"></i> Envío gratis calculado en el siguiente paso
+            </div>
+            <button class="checkout-btn" id="checkout-btn">
+                <span>Proceder al Pago</span>
+                <i data-lucide="arrow-right"></i>
+            </button>
+            <button class="clear-cart-link" id="clear-cart-btn">Vaciar bolsa</button>
+        </div>
+    </aside>
+
+    <!-- Toast Notification -->
+    <div class="toast-notification" id="toast-notification" role="status" aria-live="polite">
+        <i data-lucide="check-circle-2" class="toast-icon"></i>
+        <span class="toast-message" id="toast-message">Producto añadido</span>
+    </div>
+
+    <!-- Footer -->
+    <footer class="site-footer">
+        <div class="container footer-content">
+            <div class="footer-brand">
+                <div class="logo-text-group">
+                    <span class="logo-title">AURA</span>
+                    <span class="logo-subtitle">COSMÉTIQUE</span>
+                </div>
+                <p>Tu destino digital para cosméticos de alta gama, fórmulas limpias y cuidado dermatológico avanzado.
+                </p>
+                <div class="social-links">
+                    <a href="#" aria-label="Instagram"><i data-lucide="instagram"></i></a>
+                    <a href="#" aria-label="Facebook"><i data-lucide="facebook"></i></a>
+                    <a href="#" aria-label="Twitter"><i data-lucide="twitter"></i></a>
+                </div>
+            </div>
+
+            <div class="footer-links">
+                <h4>Garantías AURA</h4>
+                <ul>
+                    <li><i data-lucide="check"></i> 100% Autenticidad Garantizada</li>
+                    <li><i data-lucide="check"></i> Fórmulas Libres de Crueldad Animal</li>
+                    <li><i data-lucide="check"></i> Devoluciones sin Costo por 30 Días</li>
+                    <li><i data-lucide="check"></i> Soporte de Asesores de Belleza</li>
+                </ul>
+            </div>
+
+            <div class="footer-tech">
+                <h4>Arquitectura del Sistema</h4>
+                <p class="tech-badge">Node.js Express + Docker</p>
+                <p class="tech-desc">Catálogo en línea reactivo con base de datos JSON desacoplada y despliegue
+                    continuo.</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <div class="container footer-bottom-inner">
+                <p>&copy; 2026 AURA Cosmétique - Proyecto Académico Sistemas Ágiles.</p>
+                <p>Diseñado con elegancia & rendimiento web.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- App Script -->
+    <script src="app.js"></script>
+</body>
+
+</html>
