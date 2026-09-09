@@ -270,5 +270,39 @@
     "vegano": false,
     "crueltyFree": true,
     "enStock": true
+  },
+  {
+    "id": "prod-17",
+    "nombre": "Lip Glow Oil Aceite Labial Nutritivo",
+    "marca": "Dior Beauty",
+    "categoria": "Labiales",
+    "precio": 40.00,
+    "imagen": "https://images.unsplash.com/photo-1586495777744-4413f21062fa?auto=format&fit=crop&w=800&q=80",
+    "descripcion": "Aceite labial ultra nutritivo con infusión de aceite de cereza que realza el color natural de los labios con un brillo espejado y sensación sedosa no pegajosa.",
+    "rating": 4.9,
+    "resenas": 640,
+    "tono": "001 Pink (Rosa Luminoso)",
+    "volumen": "6 ml",
+    "beneficios": ["Aceite de cereza hidratante", "Tecnología Color Reviver", "Efecto brillo cristal"],
+    "vegano": false,
+    "crueltyFree": true,
+    "enStock": true
+  },
+  {
+    "id": "prod-18",
+    "nombre": "Crema Reparadora CeraVe Advanced Barrier",
+    "marca": "CeraVe",
+    "categoria": "Cuidado Facial",
+    "precio": 16.50,
+    "imagen": "https://images.unsplash.com/photo-1556228720-195a672e8a03?auto=format&fit=crop&w=800&q=80",
+    "descripcion": "Bálsamo restaurador con 3 ceramidas esenciales y ácido hialurónico que protege y recupera intensamente la barrera protectora de la piel seca o sensibilizada.",
+    "rating": 4.8,
+    "resenas": 920,
+    "tono": "Crema Rica Reparadora",
+    "volumen": "100 ml",
+    "beneficios": ["3 ceramidas esenciales", "Restaura la barrera cutánea", "Sin fragancias ni irritantes"],
+    "vegano": true,
+    "crueltyFree": true,
+    "enStock": true
   }
 ]
